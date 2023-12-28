@@ -1,0 +1,37 @@
+/* date-time-picker.component.css */
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    /* margin-top: 10px; */
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.width-100 {
+    width: 95%!important;
+    border: none;
+    height: 40px;
+    border-bottom: 1px solid gray;
+    background: rgb(245 245 245);
+}
+
+
+/* input:focus {
+    outline: none!important;
+    border: none !important;
+    border-bottom: 1px solid gray;
+} */

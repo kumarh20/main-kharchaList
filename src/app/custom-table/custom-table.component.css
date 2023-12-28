@@ -1,0 +1,39 @@
+.center {
+    text-align: center;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.background-blue {
+    background: #3f51b5!important;
+    color: white;
+    font-size: 17px;
+}
+
+.background-green {
+    border-top: 2px dashed #1a9f6e;
+    font-size: 20px;
+}
+
+.icon:active {
+    color: greenyellow;
+}
+
+.add-note {
+    width: 100%;
+    height: 100%;
+    font-size: 150px;
+    margin: auto;
+    display: block;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    color: #3f59b5;
+    transition: all .2s ease-in-out;
+}
+
+.add-note:hover {
+    color: #17586d;
+}

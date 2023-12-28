@@ -1,0 +1,47 @@
+<ng-container *ngIf="dataList.length == 0">
+    <mat-icon class="add-note" title="click to add Items" (click)="clickedAddItem($event)">note_add</mat-icon>
+</ng-container>
+<div class="tableClass">
+
+    <table mat-table [dataSource]="dataList" class="mat-elevation-z8" *ngIf="dataList.length > 0">
+
+        <!-- <ng-container *ngIf="headerColumns.length > 0"> -->
+        <ng-container *ngFor="let headerName of headerColumns">
+            <ng-container [matColumnDef]="headerName">
+                <th mat-header-cell *matHeaderCellDef class="background-blue">{{ headerName | titlecase }}</th>
+                <td class="" mat-cell *matCellDef="let element" [ngClass]="{'background-green': element.name.toLowerCase() == 'total'}">
+                    <ng-container *ngIf="headerName === 'price'">
+                        <div class="display-inline">
+                            <div class="rupee-icon"></div>
+                        </div>
+                    </ng-container>
+                    <div class="display-inline" *ngIf="headerName === 'date'">
+                        {{ element[headerName] | date: 'medium' }}
+                    </div>
+                    <div class="display-inline" *ngIf="headerName !== 'date'">
+                        {{ element[headerName]}}
+                    </div>
+                    <ng-container *ngIf="headerName === 'action' && element.name.toLowerCase() !== 'total'">
+                        <div class="icon display-inline" title="Edit" (click)="editRow(element, formLabels.editForm)">
+                            <i class="fa fa-edit icon"></i>
+                        </div>
+                        <div class="icon display-inline " title="Delete" (click)="deleteRow(element)">
+                            <div class="delete-icon color-red icon"></div>
+                        </div>
+                    </ng-container>
+                </td>
+
+            </ng-container>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="headerColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: headerColumns;"></tr>
+        <!-- </ng-container> -->
+        <!-- mat footer -->
+    </table>
+</div>
+<ng-container *ngIf="headerColumns.length == 0 && dataList.length == 0;">
+    <div class="center">No data</div>
+</ng-container>
+<ng-container *ngIf="dataList.length == 0;">
+    <div class="center">No Record Found</div>
+</ng-container>

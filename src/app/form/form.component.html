@@ -1,0 +1,51 @@
+<h1 mat-dialog-title class="mat-header-title">
+    <div>
+        Form{{_formData.data.id}}
+    </div>
+    <div (click)="closeDialog(null)" class="close">
+        &times;
+    </div>
+</h1>
+<mat-dialog-content>
+    <div class="list padding-5" *ngIf="false">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit('userForm', userForm, $event)">
+
+            <!-- <img class="img" src="../../assets" alt=""> -->
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Email</mat-label>
+                <input matInput placeholder="Ex: example.com" value="" formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Password</mat-label>
+                <input matInput placeholder="@1234" value="" formControlName="password">
+            </mat-form-field>
+            <button mat-raised-button color="accent">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">login</button>
+        </form>
+    </div>
+    <!--addProductForm!-->
+    <div class="list padding-5">
+
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit(_formData.formType !== 'editForm' ?'addProductForm' : 'editForm',addProductForm, $event)">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Name</mat-label>
+                <input type="text" matInput placeholder="Ex:shopping" formControlName="name" (keyup.enter)="onSubmit(_formData.formType !== 'editForm' ?'addProductForm' : 'editForm',addProductForm, $event)">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter Price</mat-label>
+                <input type="number" matInput placeholder="ex: 500" formControlName="price" (keyup.enter)="onSubmit(_formData.formType !== 'editForm' ?'addProductForm' : 'editForm',addProductForm, $event)">
+            </mat-form-field>
+            <!--Date time picker-->
+            <app-date-time-picker [selectedDateTime]="selectedDateTime" (dateTimeSelected)="onDateTimeSelected($event)"></app-date-time-picker>
+            <!--Date time picker-->
+            <div class="actions">
+                <button mat-raised-button color="accent" (click)="closeDialog(null)">Cancel</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!addProductForm.valid">
+                    <span *ngIf="_formData.formType !== 'editForm'" >Add</span>
+                    <span *ngIf="_formData.formType === 'editForm'" >Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

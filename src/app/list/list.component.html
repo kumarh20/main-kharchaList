@@ -1,0 +1,29 @@
+<mat-drawer-container class="drawer-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()" class="dashboard">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="dashboard"></mat-icon>
+            
+        </button>
+
+        <div class="content-wrapper">
+            <div class="row display-flex">
+                <div class="col-md-10">
+                    <app-filter></app-filter>
+                </div>
+                <div class="col-md-2">
+                    <button mat-raised-button color="primary" class="button" (click)="openFormDialog($event, formLabels.addForm)">Add</button>
+                </div>
+            </div>
+
+
+
+            <app-custom-table [tabelData]="tabelData" (emitEditAction)="getEditData($event)" (emitDeleteAction)="getDeleteData($event)" (addNoteButtonClicked)="addNoteButtonClicked($event)"></app-custom-table>
+        </div>
+    </div>
+    <!--Main div-->
+
+</mat-drawer-container>

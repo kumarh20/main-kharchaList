@@ -1,0 +1,4 @@
+<div class="date-time-picker">
+    <label for="dateTimePicker">Select date and time:</label>
+    <input class="width-100" type="datetime-local" [(ngModel)]="selectedDateTimeInput" id="dateTimePicker" (change)="onDateTimeChange($event)" #dateTimeInput>
+</div>

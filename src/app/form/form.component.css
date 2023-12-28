@@ -1,0 +1,43 @@
+.center {
+    display: block;
+    width: fit-content;
+}
+
+.mat-header-title {
+    color: white;
+    background-color: #3f51b5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-header-title>span {
+    display: block;
+}
+
+.padding-5 {
+    padding: 5%;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+button {
+    margin: 10px 5px;
+}
+
+.actions {
+    padding: 0 5%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-form-field {
+    margin: 10px;
+}

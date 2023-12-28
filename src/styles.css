@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~font-awesome/css/font-awesome.css';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+.rupee-icon {
+    width: 20px;
+    height: 10px;
+    background: url(../src/assets/rupee.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.delete-icon {
+    width: 25px;
+    height: 25px;
+    background: url(../src/assets/delete.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.display-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-inline {
+    display: inline-block!important;
+}
+
+.position-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1111;
+}
+
+.padding-left-right-5 {
+    padding: 0 5%;
+}
