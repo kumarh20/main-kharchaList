@@ -1,9 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { TabelData } from './custom-table.interface';
-import { ELEMENT_DATA } from './custom-table.contant';
 import { FormService } from '../form/form.service';
 import { ListService } from '../list/list.service';
-import { IFormData } from '../form/form.interface';
 import { FormLabels } from '../list/list.constant';
 import { NameFilterPipe } from '../pipes/name-filter.pipe';
 
