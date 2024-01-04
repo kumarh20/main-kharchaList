@@ -28,6 +28,7 @@ import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
 import { InputTypeTextComponent } from './reusable-components/input-type-text/input-type-text.component';
 import { InputTypeDateComponent } from './reusable-components/input-type-date/input-type-date.component';
+import { LoginComponent } from './Auth-process/login/login.component';
 
 
 
@@ -47,7 +48,8 @@ import { InputTypeDateComponent } from './reusable-components/input-type-date/in
     NameFilterPipe,
     DateFilterPipe,
     InputTypeTextComponent,
-    InputTypeDateComponent
+    InputTypeDateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
