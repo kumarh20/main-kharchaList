@@ -26,6 +26,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { FilterComponent } from './filter/filter.component';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
+import { InputTypeTextComponent } from './reusable-components/input-type-text/input-type-text.component';
+import { InputTypeDateComponent } from './reusable-components/input-type-date/input-type-date.component';
 
 
 
@@ -43,7 +45,9 @@ import { DateFilterPipe } from './pipes/date-filter.pipe';
     DateTimePickerComponent,
     FilterComponent,
     NameFilterPipe,
-    DateFilterPipe
+    DateFilterPipe,
+    InputTypeTextComponent,
+    InputTypeDateComponent
   ],
   imports: [
     BrowserModule,
@@ -65,11 +69,13 @@ import { DateFilterPipe } from './pipes/date-filter.pipe';
     MatSidenavModule, 
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
-    DatePipe,
     CommonModule
-    
+    // DatePipe should not be included here
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    NameFilterPipe,
+    DateFilterPipe,],  // This line is okay if you need to provide the DatePipe globally
   bootstrap: [AppComponent],
   schemas:[NO_ERRORS_SCHEMA]
 })

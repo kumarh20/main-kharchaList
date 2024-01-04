@@ -1,0 +1,4 @@
+<div class="width-100 ">
+    <label *ngIf="inputTextData.labelText" for="" [ngClass]="inputTextData.labelClass">{{inputTextData.labelText}}</label>
+    <input type="text" [ngClass]="inputTextData.extraClass" [(ngModel)]="inputTextValue" (ngModelChange)="emitInputValue(inputTextValue)" placeholder="Enter here">
+</div>

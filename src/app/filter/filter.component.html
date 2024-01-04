@@ -1,4 +1,4 @@
-<div class="content-wrapper padding-left-right-5">
-
-    filter
+<div class="content-wrapper padding-left-right-5 display-flex">
+    <app-input-type-text [inputTextData]="inputTextData" (emitValue)="getInputTextValue($event)"></app-input-type-text>
+    <app-input-type-date [inputDateData]="inputDateData" (emitValue)="getInputDateValue($event)"></app-input-type-date>
 </div>

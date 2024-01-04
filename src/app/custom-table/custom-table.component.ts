@@ -5,6 +5,8 @@ import { FormService } from '../form/form.service';
 import { ListService } from '../list/list.service';
 import { IFormData } from '../form/form.interface';
 import { FormLabels } from '../list/list.constant';
+import { NameFilterPipe } from '../pipes/name-filter.pipe';
+
 
 @Component({
   selector: 'app-custom-table',
@@ -13,6 +15,7 @@ import { FormLabels } from '../list/list.constant';
 })
 export class CustomTableComponent implements OnInit, OnChanges {
   @Input()  tabelData: TabelData = new TabelData();
+  @Input()filterValue: string = '';
   @Output() emitEditAction: EventEmitter<any> = new EventEmitter();
   @Output() emitDeleteAction: EventEmitter<any> = new EventEmitter();
   @Output() addNoteButtonClicked: EventEmitter<any> = new EventEmitter();
@@ -23,22 +26,28 @@ export class CustomTableComponent implements OnInit, OnChanges {
   constructor(
     private _formService: FormService,
     private _cdr: ChangeDetectorRef,
-    private _listService: ListService
+    private _listService: ListService,
+    private _namePipe: NameFilterPipe,
   ){}
   ngOnInit(): void {
-    // console.log(this.tabelData);
     this.headerColumns = this.tabelData?.headerColumns;
-    // this.dataList = this.tabelData?.dataList;
     this.dataList = this.mapTotalRow(this.tabelData?.dataList);
-
     this.tableClass = this.tabelData?.tabelClass;
   }
   ngOnChanges(): void {
     this.assignTabelData();
+    if(this.filterValue.length > 0) {
+    this.dataList = this._namePipe.transform(this.filterValue, this.dataList)
+    }else if(this.filterValue.length == 0){
+      const TabelData = localStorage.getItem('prodList');
+              if(TabelData){
+                this.dataList = this.mapTotalRow(JSON.parse(TabelData)) }
+    }
+      
+    
   }
   private assignTabelData(){
     this._listService.dataList$.subscribe(res=>{
-      console.log("custom table subscribe");
       
       if(res && Array.isArray(res)){
         this.headerColumns = this.tabelData?.headerColumns;

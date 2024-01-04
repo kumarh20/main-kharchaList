@@ -52,3 +52,11 @@ body {
 .padding-left-right-5 {
     padding: 0 5%;
 }
+
+.width-100 {
+    width: 100%;
+}
+
+.margin-left-right-5 {
+    margin: 0 5%;
+}

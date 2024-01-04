@@ -12,7 +12,7 @@
         <div class="content-wrapper">
             <div class="row display-flex">
                 <div class="col-md-10">
-                    <app-filter></app-filter>
+                    <app-filter (emitNameFilterValue)="emitNameFilterValue($event)" (emitDateFilterValue)="emitDateFilterValue($event)"></app-filter>
                 </div>
                 <div class="col-md-2">
                     <button mat-raised-button color="primary" class="button" (click)="openFormDialog($event, formLabels.addForm)">Add</button>
@@ -21,7 +21,7 @@
 
 
 
-            <app-custom-table [tabelData]="tabelData" (emitEditAction)="getEditData($event)" (emitDeleteAction)="getDeleteData($event)" (addNoteButtonClicked)="addNoteButtonClicked($event)"></app-custom-table>
+            <app-custom-table [tabelData]="tabelData" [filterValue]="nameFilterValue" (emitEditAction)="getEditData($event)" (emitDeleteAction)="getDeleteData($event)" (addNoteButtonClicked)="addNoteButtonClicked($event)"></app-custom-table>
         </div>
     </div>
     <!--Main div-->

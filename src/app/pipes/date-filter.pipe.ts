@@ -5,8 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DateFilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string, ...args: any[]) {
+    args.forEach((arg) => {
+      if((arg.date).toLowerCase() == value.toLowerCase()) {
+        return arg;
+      }else{
+        return null;
+      }
+    })
   }
 
 }

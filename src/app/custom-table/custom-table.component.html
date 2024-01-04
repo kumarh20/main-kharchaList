@@ -1,6 +1,6 @@
-<ng-container *ngIf="dataList.length == 0">
+<!-- <ng-container *ngIf="dataList != null && dataList.length == 0">
     <mat-icon class="add-note" title="click to add Items" (click)="clickedAddItem($event)">note_add</mat-icon>
-</ng-container>
+</ng-container> -->
 <div class="tableClass">
 
     <table mat-table [dataSource]="dataList" class="mat-elevation-z8" *ngIf="dataList.length > 0">

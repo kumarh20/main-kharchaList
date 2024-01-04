@@ -22,6 +22,8 @@ export class ListComponent implements OnInit{
   private subs = new SubSink();
   prodList: IFormData[] = [];
   formLabels = FormLabels;
+  nameFilterValue:string = '';
+  dateFilterValue:string = '';
   constructor(
     public _dialog: MatDialog,
     private _listService: ListService,
@@ -78,5 +80,12 @@ export class ListComponent implements OnInit{
     }
     addNoteButtonClicked(isClicked:boolean ) {
       this.openFormDialog(isClicked, FormLabels.addForm)
+    }
+
+    emitNameFilterValue(name: string){
+      this.nameFilterValue = name;      
+    }
+    emitDateFilterValue(date: string){
+      console.log(date);
     }
   }
